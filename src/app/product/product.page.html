@@ -1,0 +1,37 @@
+<ion-header [ngStyle]="{'background-image': 'url(' + categoriesDetails.category_img+ ')'}"> 
+  <div class="headerIcons">
+    <span class="iconsLeft" >
+        <ion-icon name="arrow-back" (click)="returnBack()"></ion-icon>
+        {{categoriesDetails.name}}
+    </span>
+   <span class="iconsRight">
+      <ion-icon name="search"></ion-icon>
+      <ion-icon name="cart"></ion-icon>
+   </span>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size=6 *ngFor="let productsOfCategory of productsOfCategories">
+        <ion-card (click)="chooseProducts(productsOfCategory.id)">
+            <ion-card-header [ngStyle]="{'background-image': 'url(' + productsOfCategory.product_img+ ')'}">
+            </ion-card-header>
+            <ion-card-content>
+              <h3>{{productsOfCategory.name}}</h3>
+              <span>{{productsOfCategory.weight}}</span><br>
+              <div>
+                  <span>{{productsOfCategory.price}}</span>
+                  <ion-icon name="add-circle"></ion-icon>
+              </div>
+            </ion-card-content>
+          </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer>
+    <ion-row>
+      <ion-col class='sort' size=6> Sort by</ion-col>
+      <ion-col size=6> Filter </ion-col>
+    </ion-row>
+</ion-footer>
